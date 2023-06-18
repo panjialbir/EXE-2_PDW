@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HALAMAN 2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .btn-danger {
+      background-color: red;
+      border-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Registrasi</h1>
+    
+    <form id="registration-form">
+      <div class="form-group">
+        <label for="name">Nama:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Nomor Telepon:</label>
+        <input type="tel" class="form-control" id="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Jenis Tiket:</label><br>
+        <div class="radio-group">
+          <input type="radio" id="VIP" name="ticket-type" value="VIP">
+          <label for="VIP">VIP</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="DIAMOND" name="ticket-type" value="DIAMOND">
+          <label for="DIAMOND">DIAMOND</label>
+        </div>
+        <div class="radio-group">
+          <input type="radio" id="BRONZE" name="ticket-type" value="BRONZE">
+          <label for="BRONZE">BRONZE</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-danger">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    // Mendapatkan referensi elemen form
+    const form = document.getElementById('registration-form');
+
+    // Menangani submit form
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Mencegah pengiriman form
+
+      // Mendapatkan nilai input dari form
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const ticketType = document.querySelector('input[name="ticket-type"]:checked').value;
+
+      // Menampilkan hasil form dalam pop-up
+      const message = `
+        Nama: ${name}\n
+        Email: ${email}\n
+        Nomor Telepon: ${phone}\n
+        Jenis Tiket: ${ticketType}
+      `;
+      alert(message);
+
+      // Mengosongkan nilai input setelah pop-up ditampilkan
+      form.reset();
+    });
+  </script>
+</body>
+</html>
